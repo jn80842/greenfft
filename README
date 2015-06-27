@@ -1,0 +1,3 @@
+A Chlorophyll implementation of an 8-point radix-2 fast Fourier transform. For comparison, a C program implementing the same FFT with floating point in C and a version in C using the same type of fixed point numbers as in the Chlorophyll program.
+
+The Chlorophyll project is [here](https://github.com/mangpo/chlorophyll); the header to compile with the fixed point C program is [here](https://github.com/mschuldt/streaming-hmm/blob/master/fixed-point.h). The FFT implementation is based on the version presented [here](http://www.engr.colostate.edu/ECE423/lab06/Lab_Notes/Lab_Notes_6.pdf).
