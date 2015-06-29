@@ -1,0 +1,402 @@
+{block 790}
+host target | cr
+0 node 800 load
+1 node 802 load
+2 node 804 load
+3 node 806 load
+4 node 808 load
+5 node 810 load
+100 node 812 load
+101 node 814 load
+102 node 816 load
+103 node 818 load
+104 node 820 load
+105 node 822 load
+200 node 824 load
+201 node 826 load
+202 node 828 load
+203 node 830 load
+204 node 832 load
+205 node 834 load
+300 node 836 load
+301 node 838 load
+302 node 840 load
+303 node 842 load
+304 node 844 load
+305 node 846 load
+400 node 848 load
+401 node 850 load
+402 node 852 load
+403 node 854 load
+404 node 856 load
+405 node 858 load
+501 node 862 load
+502 node 864 load
+503 node 866 load
+504 node 868 load
+505 node 870 load
+
+{block 792}
+: /node dup +node /ram ; | cr
+0 /node $0 /p
+1 /node $0 /p
+2 /node $0 /p
+3 /node $0 /p
+4 /node $0 /p
+5 /node $0 /p
+100 /node $0 /p
+101 /node $0 /p
+102 /node $0 /p
+103 /node $0 /p
+104 /node $0 /p
+105 /node $0 /p
+200 /node $0 /p
+201 /node $0 /p
+202 /node $0 /p
+203 /node $0 /p
+204 /node $0 /p
+205 /node $0 /p
+300 /node $0 /p
+301 /node $0 /p
+302 /node $0 /p
+303 /node $0 /p
+304 /node $0 /p
+305 /node $0 /p
+400 /node $0 /p
+401 /node $0 /p
+402 /node $0 /p
+403 /node $0 /p
+404 /node $0 /p
+405 /node $0 /p
+501 /node $0 /p
+502 /node $0 /p
+503 /node $0 /p
+504 /node $0 /p
+505 /node $0 /p
+
+{block 800}
+( -) # 0 ( id 0 mem 7) 0 org | cr
+32768 , 0 , 0 , 0 , 32768 , 32768 , 0 , | br
+: main = $0 | cr
+  0 6 b! !b 2 for | cr
+    6 b! @b b! @b right b! !b 6 b! @b 3 . + b! @b right b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 802}
+( -) # 1 ( id 1 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 1rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 2rep = $0 b! @b a! 0 17 1rep = $0 ; | cr
+: bcic = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 2rep push dup or pop 15 1rep drop drop a 3 b! @b 0 2rep push dup or pop 15 1rep drop drop a - 1 . + . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    down b! @b down b! @b down b! @b right b! @b right b! @b bcic push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 804}
+( -) # 2 ( id 2 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 5rep = $0 down b! @b down b! @b = $0 ; | cr
+: 3rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 4rep = $0 b! @b a! 0 17 3rep = $0 ; | cr
+: bcrc = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 4rep push dup or pop 15 3rep drop drop a 2 b! @b 0 4rep push dup or pop 15 3rep drop drop a . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    5rep 5rep down b! @b bcrc push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 806}
+( -) # 3 ( id 3 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 8rep = $0 down b! @b down b! @b = $0 ; | cr
+: 6rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 7rep = $0 b! @b a! 0 17 6rep = $0 ; | cr
+: bcid = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 7rep push dup or pop 15 6rep drop drop a 3 b! @b 0 7rep push dup or pop 15 6rep drop drop a - 1 . + . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    8rep 8rep down b! @b bcid push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 808}
+( -) # 4 ( id 4 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 9rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 10rep = $0 b! @b a! 0 17 9rep = $0 ; | cr
+: bcrd = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 10rep push dup or pop 15 9rep drop drop a 2 b! @b 0 10rep push dup or pop 15 9rep drop drop a . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    down b! @b down b! @b down b! @b right b! @b right b! @b bcrd push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 810}
+( -) # 5 ( id 5 mem 7) 0 org | cr
+32768 , 0 , -23170 , 0 , 32768 , 23170 , 0 , | br
+: main = $0 | cr
+  0 6 b! !b 2 for | cr
+    6 b! @b b! @b right b! !b 6 b! @b 3 . + b! @b right b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 812}
+( -) # 100 ( id 6 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 12rep = $0 right b! @b up b! !b = $0 ; | cr
+: 11rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 13rep = $0 b! @b a! 0 17 11rep = $0 ; | cr
+: blic = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 13rep push dup or pop 15 11rep drop drop a 3 b! @b 0 13rep push dup or pop 15 11rep drop drop a - 1 . + . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b right b! @b right b! @b down b! @b down b! @b blic push drop pop 12rep 12rep dup right b! !b next warm = $0 ; | cr
+
+{block 814}
+( -) # 101 ( id 7 mem 0) 0 org | cr
+| br
+: main = $0 0 11583 push drop pop | cr
+  2 for | cr
+    up b! @b down b! !b left b! @b down b! !b up b! @b down b! !b up b! @b right b! !b left b! @b right b! !b up b! @b right b! !b dup left b! !b dup right b! !b left b! @b right b! !b up b! @b push drop pop down b! @b up b! !b right b! @b up b! !b next warm = $0 ; | cr
+
+{block 816}
+( -) # 102 ( id 8 mem 7) 0 org | cr
+32768 , 0 , 0 , 0 , 32768 , 32768 , 0 , | br
+: main = $0 0 -34757 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    dup left b! !b dup left b! !b left b! @b down b! !b dup down b! !b up b! @b down b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b dup left b! !b down b! @b right b! !b up b! @b push drop pop up b! @b right b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 818}
+( -) # 103 ( id 9 mem 0) 0 org | cr
+| br
+: main = $0 0 34757 push drop pop | cr
+  2 for | cr
+    dup left b! !b dup left b! !b up b! @b down b! !b left b! @b down b! !b up b! @b down b! !b up b! @b down b! !b up b! @b down b! !b right b! @b up b! !b right b! @b push drop pop down b! @b left b! !b next warm = $0 ; | cr
+
+{block 820}
+( -) # 104 ( id 10 mem 0) 0 org | cr
+| br
+: main = $0 0 -11583 push drop pop | cr
+  2 for | cr
+    left b! @b down b! !b dup down b! !b up b! @b down b! !b left b! @b right b! !b dup right b! !b up b! @b right b! !b dup left b! !b dup right b! !b down b! @b up b! !b right b! @b push drop pop left b! @b up b! !b next warm = $0 ; | cr
+
+{block 822}
+( -) # 105 ( id 11 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 14rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 15rep = $0 b! @b a! 0 17 14rep = $0 ; | cr
+: blrd = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 15rep push dup or pop 15 14rep drop drop a 2 b! @b 0 15rep push dup or pop 15 14rep drop drop a . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b right b! @b right b! @b down b! @b down b! @b blrd push drop pop right b! @b up b! !b dup right b! !b next warm = $0 ; | cr
+
+{block 824}
+( -) # 200 ( id 12 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 16rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 17rep = $0 b! @b a! 0 17 16rep = $0 ; | cr
+: blrc = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 17rep push dup or pop 15 16rep drop drop a 2 b! @b 0 17rep push dup or pop 15 16rep drop drop a . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    up b! @b up b! @b right b! @b right b! @b right b! @b blrc push drop pop dup right b! !b next warm = $0 ; | cr
+
+{block 826}
+( -) # 201 ( id 13 mem 7) 0 org | cr
+32768 , 0 , 0 , 0 , 32768 , 32768 , 0 , | br
+: main = $0 0 0 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    dup up b! !b left b! @b up b! !b dup up b! !b left b! @b up b! !b left b! @b right b! !b 6 b! @b b! @b right b! !b 6 b! @b 3 . + b! @b right b! !b down b! @b up b! !b right b! @b left b! !b up b! @b left b! !b down b! @b push drop pop up b! @b left b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 828}
+( -) # 202 ( id 14 mem 7) 0 org | cr
+32768 , 0 , -23170 , 0 , 32768 , 23170 , 0 , | br
+: main = $0 0 0 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    dup left b! !b dup left b! !b dup up b! !b dup left b! !b 6 b! @b b! @b right b! !b 6 b! @b 3 . + b! @b right b! !b right b! @b up b! !b left b! @b up b! !b left b! @b right b! !b down b! @b push drop pop left b! @b right b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 830}
+( -) # 203 ( id 15 mem 0) 0 org | cr
+| br
+: main = $0 0 0 push drop pop | cr
+  2 for | cr
+    dup up b! !b left b! @b up b! !b right b! @b up b! !b right b! @b up b! !b dup left b! !b up b! @b down b! !b down b! @b right b! !b right b! @b down b! !b right b! @b push drop pop next warm = $0 ; | cr
+
+{block 832}
+( -) # 204 ( id 16 mem 7) 0 org | cr
+32768 , 32768 , 23170 , 0 , 0 , 23170 , 0 , | br
+: main = $0 0 0 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    dup up b! !b dup up b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b dup left b! !b left b! @b right b! !b dup right b! !b down b! @b right b! !b down b! @b right b! !b up b! @b down b! !b up b! @b down b! !b right b! @b push drop pop 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 834}
+( -) # 205 ( id 17 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 18rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 19rep = $0 b! @b a! 0 17 18rep = $0 ; | cr
+: blid = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 19rep push dup or pop 15 18rep drop drop a 3 b! @b 0 19rep push dup or pop 15 18rep drop drop a - 1 . + . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b up b! @b right b! @b right b! @b right b! @b blid push drop pop dup right b! !b next warm = $0 ; | cr
+
+{block 836}
+( -) # 300 ( id 18 mem 4) 0 org | cr
+0 , 0 , 0 , 0 , | br
+: 20rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: blra = $0 0 a! !+ !+ !+ 0 1 b! @b 32768 a! 0 17 20rep push dup or pop 15 20rep drop drop a 0 b! @b 0 a! 0 17 20rep push dup or pop 15 20rep drop drop a . + push drop pop 2 b! @b over - 1 . + . + 3 b! !b 3 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b right b! @b right b! @b blra push drop pop dup right b! !b next warm = $0 ; | cr
+
+{block 838}
+( -) # 301 ( id 19 mem 0) 0 org | cr
+| br
+: main = $0 0 11583 push drop pop | cr
+  2 for | cr
+    left b! @b up b! !b left b! @b up b! !b dup left b! !b dup right b! !b left b! @b right b! !b up b! @b right b! !b up b! @b push drop pop right b! @b down b! !b up b! @b down b! !b next warm = $0 ; | cr
+
+{block 840}
+( -) # 302 ( id 20 mem 0) 0 org | cr
+| br
+: main = $0 0 11583 push drop pop | cr
+  2 for | cr
+    dup left b! !b dup left b! !b left b! @b up b! !b dup up b! !b dup left b! !b right b! @b push drop pop right b! @b down b! !b next warm = $0 ; | cr
+
+{block 842}
+( -) # 303 ( id 21 mem 0) 0 org | cr
+| br
+: main = $0 0 21181 push drop pop | cr
+  2 for | cr
+    dup left b! !b dup left b! !b left b! @b up b! !b up b! @b right b! !b down b! @b push drop pop up b! @b down b! !b down b! @b left b! !b left b! @b right b! !b next warm = $0 ; | cr
+
+{block 844}
+( -) # 304 ( id 22 mem 7) 0 org | cr
+32768 , 0 , -23170 , 0 , 32768 , 23170 , 0 , | br
+: main = $0 0 0 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    left b! @b up b! !b left b! @b up b! !b dup left b! !b dup right b! !b up b! @b right b! !b down b! @b right b! !b down b! @b right b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b down b! @b up b! !b left b! @b push drop pop down b! @b up b! !b right b! @b left b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 846}
+( -) # 305 ( id 23 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 23rep = $0 right b! @b right b! @b = $0 ; | cr
+: 21rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 22rep = $0 b! @b a! 0 17 21rep = $0 ; | cr
+: blib = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 22rep push dup or pop 15 21rep drop drop a 3 b! @b 0 22rep push dup or pop 15 21rep drop drop a - 1 . + . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    23rep up b! @b 23rep blib push drop pop dup right b! !b next warm = $0 ; | cr
+
+{block 848}
+( -) # 400 ( id 24 mem 4) 0 org | cr
+0 , 0 , 0 , 0 , | br
+: 24rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: blia = $0 0 a! !+ !+ !+ 0 0 b! @b 32768 a! 0 17 24rep push dup or pop 15 24rep drop drop a 1 b! @b 0 a! 0 17 24rep push dup or pop 15 24rep drop drop a - 1 . + . + push drop pop 2 b! @b over - 1 . + . + 3 b! !b 3 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b right b! @b right b! @b blia push drop pop dup right b! !b next warm = $0 ; | cr
+
+{block 850}
+( -) # 401 ( id 25 mem 0) 0 org | cr
+| br
+: main = $0 0 0 push drop pop | cr
+  2 for | cr
+    dup down b! !b up b! @b down b! !b left b! @b down b! !b dup right b! !b up b! @b right b! !b left b! @b right b! !b left b! @b up b! !b left b! @b up b! !b down b! @b push drop pop right b! @b up b! !b next warm = $0 ; | cr
+
+{block 852}
+( -) # 402 ( id 26 mem 0) 0 org | cr
+| br
+: main = $0 0 0 push drop pop | cr
+  2 for | cr
+    dup left b! !b dup left b! !b up b! @b down b! !b up b! @b down b! !b dup down b! !b dup left b! !b down b! @b left b! !b right b! @b push drop pop next warm = $0 ; | cr
+
+{block 854}
+( -) # 403 ( id 27 mem 7) 0 org | cr
+32768 , 32768 , 23170 , 0 , 0 , 23170 , 0 , | br
+: main = $0 0 -44351 push drop pop | cr
+  0 6 b! !b 2 for | cr
+    dup left b! !b dup left b! !b up b! @b down b! !b dup down b! !b left b! @b down b! !b 6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b dup left b! !b left b! @b up b! !b left b! @b push drop pop left b! @b up b! !b down b! @b right b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
+{block 856}
+( -) # 404 ( id 28 mem 0) 0 org | cr
+| br
+: main = $0 0 0 push drop pop | cr
+  2 for | cr
+    up b! @b right b! !b left b! @b right b! !b dup right b! !b up b! @b down b! !b left b! @b down b! !b dup down b! !b dup left b! !b left b! @b up b! !b dup right b! !b down b! @b left b! !b up b! @b left b! !b right b! @b left b! !b up b! @b push drop pop next warm = $0 ; | cr
+
+{block 858}
+( -) # 405 ( id 29 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 25rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 26rep = $0 b! @b a! 0 17 25rep = $0 ; | cr
+: blrb = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 26rep push dup or pop 15 25rep drop drop a 2 b! @b 0 26rep push dup or pop 15 25rep drop drop a . + push drop pop 4 b! @b over - 1 . + . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    right b! @b right b! @b right b! @b down b! @b down b! @b blrb push drop pop right b! @b up b! !b dup right b! !b next warm = $0 ; | cr
+
+{block 862}
+( -) # 501 ( id 31 mem 4) 0 org | cr
+0 , 0 , 0 , 0 , | br
+: 27rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: bcia = $0 0 a! !+ !+ !+ 0 0 b! @b 32768 a! 0 17 27rep push dup or pop 15 27rep drop drop a 1 b! @b 0 a! 0 17 27rep push dup or pop 15 27rep drop drop a - 1 . + . + push drop pop 2 b! @b over . + 3 b! !b 3 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    down b! @b down b! @b down b! @b bcia push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 864}
+( -) # 502 ( id 32 mem 4) 0 org | cr
+0 , 0 , 0 , 0 , | br
+: 28rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: bcra = $0 0 a! !+ !+ !+ 0 1 b! @b 32768 a! 0 17 28rep push dup or pop 15 28rep drop drop a 0 b! @b 0 a! 0 17 28rep push dup or pop 15 28rep drop drop a . + push drop pop 2 b! @b over . + 3 b! !b 3 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    down b! @b down b! @b down b! @b bcra push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 866}
+( -) # 503 ( id 33 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 31rep = $0 down b! @b down b! @b = $0 ; | cr
+: 29rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 30rep = $0 b! @b a! 0 17 29rep = $0 ; | cr
+: bcib = $0 0 a! !+ !+ !+ !+ !+ 0 2 b! @b 1 30rep push dup or pop 15 29rep drop drop a 3 b! @b 0 30rep push dup or pop 15 29rep drop drop a - 1 . + . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    31rep 31rep down b! @b bcib push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 868}
+( -) # 504 ( id 34 mem 6) 0 org | cr
+0 , 0 , 0 , 0 , 0 , 0 , | br
+: 32rep = $0 | cr
+  for | cr
+    +* unext = $0 ; | cr
+: 33rep = $0 b! @b a! 0 17 32rep = $0 ; | cr
+: bcrb = $0 0 a! !+ !+ !+ !+ !+ 0 3 b! @b 1 33rep push dup or pop 15 32rep drop drop a 2 b! @b 0 33rep push dup or pop 15 32rep drop drop a . + push drop pop 4 b! @b over . + 5 b! !b 5 b! @b push drop pop = $0 ; | cr
+: main = $0 0 | cr
+  2 for | cr
+    down b! @b down b! @b down b! @b right b! @b right b! @b bcrb push drop pop dup down b! !b next warm = $0 ; | cr
+
+{block 870}
+( -) # 505 ( id 35 mem 7) 0 org | cr
+32768 , 32768 , 23170 , 0 , 0 , 23170 , 0 , | br
+: main = $0 | cr
+  0 6 b! !b 2 for | cr
+    6 b! @b b! @b down b! !b 6 b! @b 3 . + b! @b down b! !b 6 b! @b b! @b right b! !b 6 b! @b 3 . + b! @b right b! !b 6 b! @b 1 . + !b next warm = $0 ; | cr
+
